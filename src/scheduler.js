@@ -4,10 +4,11 @@
 // except for 'app' ones, which are in a sibling
 // directory.
 requirejs.config({
-    baseUrl: 'lib',
-    paths: {
-        scheduler: '../scheduler'
-    }
+  baseUrl: 'lib',
+  paths: {
+    scheduler: '../scheduler',
+    lib: '../lib'
+  }
 });
 
 // Start loading the main app file. Put all of

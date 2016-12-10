@@ -5,8 +5,18 @@
     <!-- data-main attribute tells require.js to load
          scripts/main.js after require.js loads. -->
     <script data-main="scheduler" src="lib/require.js"></script>
+    <script>
+     require(['lib/domReady', 'scheduler/scheduler'],
+             function (domReady, Scheduler)
+       {
+         domReady(function () {
+           var scheduler = new Scheduler(document.getElementById('scheduler'));
+         });
+       });
+    </script>
   </head>
   <body>
     <h1>My Sample Project</h1>
+    <div id="scheduler"></div>
   </body>
 </html>
