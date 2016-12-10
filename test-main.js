@@ -25,7 +25,8 @@ require.config({
   paths: {
     lib: 'src/lib',
     scheduler: 'src/scheduler',
-    print: 'src/lib/print'
+    print: 'src/lib/print',
+    extend: 'src/lib/extend'
   }
 
 })
