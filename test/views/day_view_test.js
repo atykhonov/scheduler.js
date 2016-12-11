@@ -24,8 +24,8 @@ define(
         view.addGymView(gymView);
 
         assert.equal(
-          '<div>      <div>      <div>Hour!</div>  </div>\
-      <div>      <div>Hour!</div>  </div>  </div>',
+          '<div class="day-view"><div class="gym-view">\n  \n  <div class="hour-view"></div>\n\
+  \n</div>\n<div class="gym-view">\n  \n  <div class="hour-view"></div>\n  \n</div>\n</div>',
           view.render()
         );
       });

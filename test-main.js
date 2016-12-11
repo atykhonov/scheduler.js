@@ -26,7 +26,9 @@ require.config({
     lib: 'src/lib',
     scheduler: 'src/scheduler',
     print: 'src/lib/print',
-    extend: 'src/lib/extend'
+    extend: 'src/lib/extend',
+    templates: 'scheduler/templates',
+    text: 'src/lib/text'
   }
 
 })

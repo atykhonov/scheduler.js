@@ -16,9 +16,12 @@ define(
 
     describe('#render()', function() {
       it('should render predefined template', function() {
-        var view = new WeekView();
+        var view = new WeekView('week-id');
 
-        assert.equal('<div>  </div>', view.render());
+        assert.equal(
+          '<div id="week-id" class="week-view">\n  \n</div>',
+          view.render()
+        );
       });
     });
 

@@ -14,9 +14,148 @@
          });
        });
     </script>
+    <style>
+     .week-view {
+         border: 1px solid blue;
+         /* float: left; */
+         /* display: table; */
+         width: 100%;
+         /* overflow: auto; */
+         white-space: nowrap;
+         font-family: Tahoma;
+         font-size: 8pt;
+     }
+     .day-view {
+         border-left: 1px solid #989898;
+         /* position: relative; */
+         /* float: left; */
+         display: inline-block;
+         vertical-align: top;
+         /* white-space: nowrap; */
+         /* margin: 0px;
+            padding: 0px; */
+         /* margin-right: -6px; */
+         width: 14.16%;
+         white-space: nowrap;
+     }
+     .gym-view {
+         display: inline-block;
+         vertical-align: top;
+         width: 33%;
+         border-right: 1px solid #E8E8E8;
+         position: relative;
+     }
+     .hour-view {
+         border-bottom: 1px solid #E8E8E8;
+         height: 20px;
+     }
+     .booking-view {
+         /* border: 1px solid red; */
+         position: absolute;
+         width: 100%;
+         top: 0px;
+         padding: 2px -4px 0 2px;
+         background-color: #1796b0;
+         border-radius: 3px;
+     }
+     .rTable {
+         float: left;
+         display: table;
+         width: 100%;
+         overflow: auto;
+         white-space: nowrap;
+     }
+     .rTableRow {
+         display: table-row;
+     }
+     .rTableColumn {
+         display: table-column;
+         background-color: green;
+     }
+     .rTableCol {
+         position: relative;
+         display: inline-block;
+     }
+     .rTableHeading {
+         display: table-header-group;
+         background-color: #ddd;
+     }
+     .rTableCell, .rTableHead {
+         /* display: table-cell; */
+         padding: 3px 10px;
+         border: 1px solid #999999;
+     }
+     .rTableHeading {
+         display: table-header-group;
+         background-color: #ddd;
+         font-weight: bold;
+     }
+     .rTableFoot {
+         display: table-footer-group;
+         font-weight: bold;
+         background-color: #ddd;
+     }
+     .rTableBody {
+         display: table-row-group;
+     }
+     .cl {
+         /* position: relative; */
+         /* float: left; */
+         /* clear: both; */
+     }
+    </style>
   </head>
   <body>
     <h1>My Sample Project</h1>
     <div id="scheduler"></div>
+
+    <h2>Phone numbers</h2>
+
+    <div class="rTable">
+      <div class="rTableRow">
+        <div class="rTableHead">
+          <strong>Name</strong>
+        </div>
+        <div class="rTableHead">
+          <span style="font-weight: bold;">Telephone</span>
+        </div>
+        <div class="rTableHead">&nbsp;</div>
+      </div>
+      <div class="rTableRow">
+        <div class="rTableCell">John</div>
+        <div class="rTableCell"><a href="tel:0123456785">0123 456 785</a></div>
+        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
+      </div>
+      <div class="rTableRow">
+        <div class="rTableCell">Cassie</div>
+        <div class="rTableCell"><a href="tel:9876532432">9876 532 432</a></div>
+        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
+      </div>
+    </div>
+
+    <div class="rTable">
+      <!-- <div class="rTableColumn"></div>
+           <div class="rTableColumn"></div>
+           <div class="rTableColumn"></div> -->
+      <div class="rTableCol">
+        <div class="rTableHead">
+          <strong>Name</strong>
+        </div>
+        <div class="rTableCell">John</div>
+        <div class="rTableCell">Cassie</div>
+      </div>
+      <div class="rTableCol">
+        <div class="rTableHead">
+          <span style="font-weight: bold;">Telephone</span>
+        </div>
+        <div class="rTableCell"><a href="tel:0123456785">0123 456 785</a></div>
+        <div class="rTableCell"><a href="tel:9876532432">9876 532 432</a></div>
+      </div>
+      <div class="rTableCol">
+        <div class="rTableHead">&nbsp;</div>
+        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
+        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
+      </div>
+    </div>
   </body>
 </html>

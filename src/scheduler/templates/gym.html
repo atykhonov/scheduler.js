@@ -1,0 +1,4 @@
+<div id="<%- id %>" class="gym-view">
+  <% hours.forEach(function(hour) { %><%- hour.render() %><% }) %>
+  <% bookings.forEach(function(booking) { %><%- booking.render() %><% }) %>
+</div>

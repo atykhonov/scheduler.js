@@ -1,10 +1,12 @@
-define(['scheduler/views/view', 'extend'], function (View, extend) {
+define(
+  ['scheduler/views/view', 'extend', 'text!scheduler/templates/hour.html'],
+  function (View, extend, html) {
 
-  function HourView() {
+  function HourView(id) {
 
-    View.call(this, arguments);
+    View.apply(this, arguments);
 
-    this.template = '<div>Hour!</div>';
+    this.template = html.trim();
   }
 
   extend(HourView, View);

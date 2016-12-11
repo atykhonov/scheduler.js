@@ -13,20 +13,12 @@ define(['scheduler/views/hour'], function(HourView) {
       });
     });
 
-    describe('#getTemplate', function() {
-      it('should return the predefined template', function() {
-        var view = new HourView();
-        var template = view.getTemplate();
-
-        assert.equal('<div>Hour!</div>', template);
-      });
-    });
-
     describe('#render()', function() {
       it('should render default template', function() {
-        var view = new HourView();
+        var view = new HourView('hour-id');
 
-        assert.equal('<div>Hour!</div>', view.render());
+        assert.equal(
+          '<div id="hour-id" class="hour-view"></div>', view.render());
       });
     });
   })

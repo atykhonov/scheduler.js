@@ -1,30 +1,36 @@
-define(['scheduler/views/view', 'extend'], function(View, extend) {
+define(
+  ['scheduler/views/view', 'extend', 'text!scheduler/templates/day.html'],
+  function(View, extend, html) {
 
-  var DayView = function() {
+    var DayView = function() {
 
-    View.call(this, arguments);
+      View.apply(this, arguments);
 
-    this.gymViews = new Array();
+      this.gymViews = new Array();
 
-    this.addGymView = function(view) {
-      this.gymViews.push(view);
+      this.addGymView = function(view) {
+        this.gymViews.push(view);
+      }
+
+      this.getGymViews = function() {
+        return this.gymViews;
+      }
+
+      this.setTemplate(html.trim());
+
+      this.setData({
+        'gyms': this.getGymViews()
+      });
     }
 
-    this.getGymViews = function() {
-      return this.gymViews;
+    extend(DayView, View);
+
+    DayView.prototype.onDisplay = function() {
+      View.prototype.onDisplay.call(this);
+      this.gymViews.forEach(function(view) {
+        view.onDisplay();
+      });
     }
-
-    var template = '\
-<div>\
-  <% gyms.forEach(function(gym) { %>\
-    <%- gym.render() %>\
-  <% }) %>\
-</div>';
-    this.setTemplate(template);
-    this.setData({'gyms': this.getGymViews()});
-  }
-
-  extend(DayView, View);
-
-  return DayView;
-});
+    
+    return DayView;
+  });

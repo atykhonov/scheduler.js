@@ -1,30 +1,37 @@
-define(['scheduler/views/view', 'extend'], function(View, extend) {
+define(
+  ['scheduler/views/view', 'extend', 'text!scheduler/templates/week.html'],
+  function(View, extend, html) {
 
-  var WeekView = function() {
+    var WeekView = function(id) {
 
-    View.call(this, arguments);
+      View.apply(this, arguments);
 
-    this.dayViews = new Array();
+      this.dayViews = new Array();
 
-    this.addDayView = function(view) {
-      this.dayViews.push(view);
+      this.addDayView = function(view) {
+        this.dayViews.push(view);
+      }
+
+      this.getDayViews = function() {
+        return this.dayViews;
+      }
+
+      this.setTemplate(html.trim());
+
+      this.setData({
+        'id': this.getId(),
+        'days': this.getDayViews()
+      });
+
+      this.display = function(element) {
+        element.innerHTML = this.render();
+        this.dayViews.forEach(function(view) {
+          view.onDisplay();
+        });
+      }
     }
 
-    this.getDayViews = function() {
-      return this.dayViews;
-    }
+    extend(WeekView, View);
 
-    var template = '\
-<div>\
-  <% days.forEach(function(day) { %>\
-    <%- day.render() %>\
-  <% }) %>\
-</div>';
-    this.setTemplate(template);
-    this.setData({'days': this.getDayViews()});
-  }
-
-  extend(WeekView, View);
-
-  return WeekView;
-});
+    return WeekView;
+  });
