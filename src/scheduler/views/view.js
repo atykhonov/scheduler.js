@@ -43,7 +43,9 @@ define(['lib/ejs'], function (ejs) {
       this.element.addEventListener("click", this.click);
     },
     onDisplay: function() {
-      this.setElement(document.getElementById(this.getId()));
+      var element = document.getElementById(this.getId());
+      element.view = this;
+      this.setElement(element);
       this.assignEventListeners();
     },
     render: function() {
