@@ -19,7 +19,17 @@ define(
 
       this.duration = duration;
 
+      this.stairs = new Array();
+
       this.setTemplate(html.trim());
+
+      this.setStairs = function(stairs) {
+        this.stairs = stairs;
+      }
+
+      this.getStairs = function() {
+        return this.stairs;
+      }
 
       this.setData({
         'var': 'val'
@@ -38,9 +48,11 @@ define(
       }
 
       this.startMoving = function(event) {
-        event = event || window.event;
+
         event.preventDefault();
+
         var element = self.getElement();
+
         var posX = event.clientX,
             posY = event.clientY,
             divTop = element.offsetTop,
@@ -49,8 +61,6 @@ define(
             eHe = element.offsetHeight,
             cWi = element.parentNode.offsetWidth,
             cHe = element.parentNode.offsetHeight;
-
-        element.parentNode.style.cursor = 'move';
 
         var diffX = posX - divLeft,
             diffY = posY - divTop;
@@ -70,9 +80,7 @@ define(
       }
 
       this.stopMoving = function() {
-        var a = document.createElement('script');
-        document.getElementById('week-view').style.cursor = 'default';
-        document.onmousemove = function(){}
+        document.onmousemove = function(){};
       }
 
       this.move = function(event, xpos, ypos) {
@@ -85,40 +93,14 @@ define(
           }
         }
 
-        var gymElement = element.parentNode;
-
-        var below;
-        var hourElement;
-        for (var i = 0; i < 24; i++) {
-          hourElement = gymElement.children[i];
-          if (ypos > hourElement.offsetTop && ypos < hourElement.offsetTop + hourElement.offsetHeight) {
-            below = hourElement;
-            break;
-          }
-        }
-
-        if (!below) {
-          return;
-        }
-
-        var parts = 4;
-        var threshold = below.offsetHeight / parts;
-
-        var thresholds = [];
-        for (var i = 0; i < parts; i++) {
-          if (ypos > below.offsetTop + i * threshold && ypos < below.offsetTop + (i + 1) * threshold) {
-            ypos = below.offsetTop + (i + 1) * threshold;
+        var stairs = self.getStairs();
+        for (var i = 0; i < stairs.length; i++) {
+          if (ypos > stairs[i] && ypos < stairs[i+1]) {
+            ypos = stairs[i+1];
           }
         }
 
         element.style.top = ypos + 'px';
-      }
-
-      this.divMove = function(event) {
-        var element = self.getElement();
-        element.style.position = "absolute";
-        element.style.top = event.clientY - (event.clientY - element.offsetTop) + "px";
-        element.style.left = event.clientX - (event.clientX - element.offsetLeft) + "px";
       }
     }
 

@@ -57,8 +57,21 @@ define(
         view.onDisplay();
         var element = view.getElement();
         element.style.top = hourViewOffsetHeight * view.getHour() + 'px';
-        console.log('Duration: ' + view.getDuration());
         element.style.height = hourViewOffsetHeight * view.getDuration() + 'px';
+      });
+
+      var stairs = new Array();
+      for (var i = 0; i < 24; i++) {
+        var hourView = this.hourViews[i];
+        var element = hourView.getElement();
+        var parts = 4;
+        var threshold = element.offsetHeight / parts;
+        for (var y = 0; y < parts; y++) {
+          stairs.push(element.offsetTop + y * threshold);
+        }
+      }
+      this.bookingViews.forEach(function(view) {
+        view.setStairs(stairs);
       });
     }
 
