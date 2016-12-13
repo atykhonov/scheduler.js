@@ -1,0 +1,7 @@
+<div id="<%- id %>" class="scheduler-view">
+  <%- toolbar.render() %>
+  <div class="day-labels">
+    <% dayLabels.forEach(function(label) { %><%- label.render() %><% }) %>
+  </div>
+  <%- week.render() %>
+</div>

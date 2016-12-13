@@ -15,22 +15,6 @@ define(
       });
     });
 
-    describe('#render()', function() {
-      it('should render predefined template', function() {
-        var view = new DayView();
-        var gymView = new GymView();
-        gymView.addHourView(new HourView());
-        view.addGymView(gymView);
-        view.addGymView(gymView);
-
-        assert.equal(
-          '<div class="day-view"><div class="gym-view">\n  \n  <div class="hour-view"></div>\n\
-  \n</div>\n<div class="gym-view">\n  \n  <div class="hour-view"></div>\n  \n</div>\n</div>',
-          view.render()
-        );
-      });
-    });
-
     describe('#addGymView #getGymViews', function() {
       it('the gym views should be added and returned', function() {
         var dayTemplate = 'day-view';

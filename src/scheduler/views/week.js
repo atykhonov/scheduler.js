@@ -1,5 +1,9 @@
 define(
-  ['scheduler/views/view', 'extend', 'text!scheduler/templates/week.html'],
+  [
+    'scheduler/views/view',
+    'extend',
+    'text!scheduler/templates/week.html'
+  ],
   function(View, extend, html) {
 
     var WeekView = function(id) {
@@ -7,6 +11,8 @@ define(
       View.apply(this, arguments);
 
       this.dayViews = new Array();
+
+      this.hourLabels = new Array();
 
       this.addDayView = function(view) {
         this.dayViews.push(view);
@@ -16,16 +22,27 @@ define(
         return this.dayViews;
       }
 
+      this.addHourLabelView = function(view) {
+        this.hourLabels.push(view);
+      }
+
+      this.getHourLabelViews = function() {
+        return this.hourLabels;
+      }
+
       this.setTemplate(html.trim());
 
       this.setData({
-        'id': this.getId(),
+        'hours': this.getHourLabelViews(),
         'days': this.getDayViews()
       });
 
-      this.display = function(element) {
-        element.innerHTML = this.render();
+      this.onDisplay = function() {
+        View.prototype.onDisplay.call(this);
         this.dayViews.forEach(function(view) {
+          view.onDisplay();
+        });
+        this.hourLabels.forEach(function(view) {
           view.onDisplay();
         });
       }

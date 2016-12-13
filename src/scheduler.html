@@ -16,26 +16,22 @@
     </script>
     <style>
      .week-view {
-         border: 1px solid blue;
+         border: 1px solid #989898;
          /* float: left; */
          /* display: table; */
          width: 100%;
          /* overflow: auto; */
          white-space: nowrap;
-         font-family: Tahoma;
-         font-size: 8pt;
+         height: 615px;
+         display: block;
+         overflow: hidden;
+         overflow-y: auto;
      }
      .day-view {
          border-left: 1px solid #989898;
-         /* position: relative; */
-         /* float: left; */
          display: inline-block;
          vertical-align: top;
-         /* white-space: nowrap; */
-         /* margin: 0px;
-            padding: 0px; */
-         /* margin-right: -6px; */
-         width: 14.16%;
+         width: 13.78%;
          white-space: nowrap;
      }
      .gym-view {
@@ -47,7 +43,7 @@
      }
      .hour-view {
          border-bottom: 1px solid #E8E8E8;
-         height: 20px;
+         height: 40px;
      }
      .booking-view {
          /* border: 1px solid red; */
@@ -104,59 +100,85 @@
          /* float: left; */
          /* clear: both; */
      }
+     .hour-labels {
+         border-right: 0px solid #989898;
+         display: inline-block;
+         vertical-align: top;
+         width: 3%;
+         white-space: nowrap;
+     }
+     .hour-labels .label-view {
+         border-bottom: 1px solid #E8E8E8;
+         height: 40px;
+         line-height: 40px;
+         text-align: center;
+         vertical-align: middle;
+         color: #606060;
+     }
+     .scheduler-view {
+         /* border-top: 1px solid #989898; */
+         border-bottom: 1px solid #989898;
+         font-family: Tahoma;
+         font-size: 8pt;
+     }
+     #day-label-empty {
+         /* border-left: 1px solid #989898; */
+         border-left: 1px solid white;
+         display: inline-block;
+         width: 3%;
+         height: 100%;
+         /* background-color: #F8F8F8; */
+         background-color: white;
+     }
+     .day-labels {
+         width: 100%;
+         background-color: #E8E8E8;
+         overflow: hidden;
+         overflow-y: scroll;
+         height: 52px;
+         white-space: nowrap;
+     }
+     .day-labels .day-label-view {
+         width: 13.78%;
+         color: #606060;
+         height: 50px;
+         line-height: 50px;
+         vertical-align: top;
+         border-left: 1px solid #989898;
+         border-top: 1px solid #989898;
+         display: inline-block;
+     }
+     .day-labels .day-label {
+         text-align: center;
+         color: #606060;
+         height: 30px;
+         line-height: 30px;
+         width: 100%;
+         border-bottom: 1px solid #989898;
+     }
+     .day-labels .gym-labels {
+         white-space: nowrap;
+         height: 20px;
+         line-height: 20px;
+     }
+     .day-labels .gym-label {
+         display: inline-block;
+         width: 33%;
+         text-align: center;
+         border-right: 1px solid #989898;
+         background-color: #F8F8F8;
+     }
+     .day-labels .last {
+         border-width: 0px;
+     }
+     #toolbar {
+         width: 100%;
+         border: 1px solid red;
+     }
     </style>
   </head>
   <body>
     <h1>My Sample Project</h1>
     <div id="scheduler"></div>
-
-    <h2>Phone numbers</h2>
-
-    <div class="rTable">
-      <div class="rTableRow">
-        <div class="rTableHead">
-          <strong>Name</strong>
-        </div>
-        <div class="rTableHead">
-          <span style="font-weight: bold;">Telephone</span>
-        </div>
-        <div class="rTableHead">&nbsp;</div>
-      </div>
-      <div class="rTableRow">
-        <div class="rTableCell">John</div>
-        <div class="rTableCell"><a href="tel:0123456785">0123 456 785</a></div>
-        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
-      </div>
-      <div class="rTableRow">
-        <div class="rTableCell">Cassie</div>
-        <div class="rTableCell"><a href="tel:9876532432">9876 532 432</a></div>
-        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
-      </div>
-    </div>
-
-    <div class="rTable">
-      <!-- <div class="rTableColumn"></div>
-           <div class="rTableColumn"></div>
-           <div class="rTableColumn"></div> -->
-      <div class="rTableCol">
-        <div class="rTableHead">
-          <strong>Name</strong>
-        </div>
-        <div class="rTableCell">John</div>
-        <div class="rTableCell">Cassie</div>
-      </div>
-      <div class="rTableCol">
-        <div class="rTableHead">
-          <span style="font-weight: bold;">Telephone</span>
-        </div>
-        <div class="rTableCell"><a href="tel:0123456785">0123 456 785</a></div>
-        <div class="rTableCell"><a href="tel:9876532432">9876 532 432</a></div>
-      </div>
-      <div class="rTableCol">
-        <div class="rTableHead">&nbsp;</div>
-        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
-        <div class="rTableCell"><img src="images/check.gif" alt="checked" /></div>
-      </div>
-    </div>
   </body>
 </html>

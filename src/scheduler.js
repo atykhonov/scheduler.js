@@ -8,7 +8,12 @@ requirejs.config({
   paths: {
     scheduler: '../scheduler',
     lib: '../lib'
-  }
+  },
+  packages: [{
+    name: 'moment',
+    location: './../../node_modules/moment',
+    main: 'moment'
+  }]
 });
 
 // Start loading the main app file. Put all of

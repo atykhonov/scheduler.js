@@ -14,21 +14,6 @@ define(
       });
     });
 
-    describe('#render()', function() {
-      it('should render predefined template', function() {
-        var view = new GymView('gym-id');
-        var hourView1 = new HourView();
-        var hourView2 = new HourView();
-        view.addHourView(hourView1);
-        view.addHourView(hourView2);
-
-        assert.equal(
-          '<div id="gym-id" class="gym-view">\n  \n  <div class="hour-view"></div>\n  \n  <div class="hour-view"></div>\n  \n</div>\n',
-          view.render()
-        );
-      });
-    });
-
     describe('#addHourViews #getHourViews', function() {
       it('the hour views should be added and returned', function() {
         var gymView = new GymView();

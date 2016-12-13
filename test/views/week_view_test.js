@@ -14,17 +14,6 @@ define(
       });
     });
 
-    describe('#render()', function() {
-      it('should render predefined template', function() {
-        var view = new WeekView('week-id');
-
-        assert.equal(
-          '<div id="week-id" class="week-view">\n  \n</div>',
-          view.render()
-        );
-      });
-    });
-
     describe('#addDayView #getDayViews', function() {
       it('the day views should be added and returned', function() {
         var weekView = new WeekView();

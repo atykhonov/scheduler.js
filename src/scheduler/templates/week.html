@@ -1,3 +1,5 @@
 <div id="<%- id %>" class="week-view">
-  <% days.forEach(function(day) { %><%- day.render() %><% }) %>
+  <div class="hour-labels">
+    <% hours.forEach(function(hour) { %><%- hour.render() %><% }) %>
+  </div><% days.forEach(function(day) { %><%- day.render() %><% }) %>
 </div>

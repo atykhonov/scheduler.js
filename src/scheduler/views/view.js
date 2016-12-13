@@ -36,17 +36,15 @@ define(['lib/ejs'], function (ejs) {
     getData: function() {
       return this.data;
     },
-    click: function(event) {
-      console.log('This is click on ' + event.target.id);
-    },
     assignEventListeners: function() {
-      this.element.addEventListener("click", this.click);
     },
     onDisplay: function() {
       var element = document.getElementById(this.getId());
-      element.view = this;
-      this.setElement(element);
-      this.assignEventListeners();
+      if (element) {
+        element.view = this;
+        this.setElement(element);
+        this.assignEventListeners();
+      }
     },
     render: function() {
       var data = this.getData();
